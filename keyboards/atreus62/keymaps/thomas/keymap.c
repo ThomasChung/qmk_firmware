@@ -13,13 +13,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     KC_EQL,
     KC_ESC,   KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                        KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT ,
     KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT ,
-    KC_LCTL,  KC_LGUI, KC_LALT, KC_LEFT, KC_RGHT, KC_BSPC, MO(_NAV),   KC_ENT,   KC_SPC,  KC_DOWN,   KC_UP, KC_LBRC, KC_RBRC, KC_BSLS
+    KC_LCTL,  KC_LALT, KC_LGUI, KC_LEFT, KC_RGHT, KC_BSPC, MO(_NAV),   KC_ENT,   KC_SPC,  KC_DOWN,   KC_UP, KC_LBRC, KC_RBRC, KC_BSLS
   ),
 
   [_NAV] = LAYOUT(
     KC_TRNS,       KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   
-    KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_F12 ,
-    KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                     KC_TRNS, KC_TRNS, KC_TRNS, KC_RGHT, KC_TRNS, KC_TRNS ,
+    KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PRINT_SCREEN, KC_F12 ,
+    KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                     KC_TRNS, KC_PGDN, KC_PGUP, KC_TRNS, KC_TRNS, KC_TRNS ,
     KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS ,
     KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_KB_MUTE, KC_KB_VOLUME_DOWN, KC_KB_VOLUME_UP, KC_TRNS, KC_TRNS, KC_TRNS
   )
@@ -31,15 +31,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // This shows how the mentioned example of sending delete when shift + backspace are pressed is realized:
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 
-const key_override_t pgup_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_UP, KC_PGUP);
-
-const key_override_t pgdown_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOWN, KC_PGDN);
-
 
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
     &delete_key_override,
-    &pgup_key_override,
-    &pgdown_key_override,
     NULL // Null terminate the array of overrides!
 };
